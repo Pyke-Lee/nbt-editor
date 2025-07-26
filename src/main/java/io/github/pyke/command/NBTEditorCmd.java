@@ -59,7 +59,7 @@ public class NBTEditorCmd implements CommandExecutor, TabCompleter {
             else if (args[1].equalsIgnoreCase("set") && args.length >= 4) {
                 int line;
                 try {
-                    line = Integer.parseInt(args[2]) - 1;
+                    line = Integer.parseInt(args[2]);
                 } catch (NumberFormatException e) {
                     player.sendMessage(SYSTEM_PREFIX + "§c줄 번호는 숫자여야 합니다.");
                     return true;
@@ -81,6 +81,18 @@ public class NBTEditorCmd implements CommandExecutor, TabCompleter {
                 player.sendMessage(SYSTEM_PREFIX + "§f아이템의 정보가 변경되었습니다.");
                 return true;
             }
+        }
+        else if (args[0].equalsIgnoreCase("test")) {
+            List<Component> lore = meta.lore();
+            if (null == lore || lore.isEmpty()) { lore = new ArrayList<>(); }
+
+            lore.add(Component.text("\uE000"));
+            lore.add(Component.text("\uE001"));
+            lore.add(Component.text("\uE002"));
+            meta.lore(lore);
+            item.setItemMeta(meta);
+            player.sendMessage(SYSTEM_PREFIX + "§f아이템의 정보가 변경되었습니다.");
+            return true;
         }
 
         player.sendMessage(SYSTEM_PREFIX + "§c잘못된 명령어입니다.");

@@ -1,1 +1,1 @@
-rootProject.name = "nbt-editor"
+rootProject.name = "NBTEditor"
