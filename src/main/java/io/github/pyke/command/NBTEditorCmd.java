@@ -20,12 +20,6 @@ import java.util.List;
 import static io.github.pyke.NBTEditor.SYSTEM_PREFIX;
 
 public class NBTEditorCmd implements CommandExecutor, TabCompleter {
-    private final NBTEditor plugin;
-
-    public NBTEditorCmd() {
-        this.plugin = NBTEditor.getInstance();
-    }
-
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
         if (!(sender instanceof Player player)) {
@@ -64,7 +58,7 @@ public class NBTEditorCmd implements CommandExecutor, TabCompleter {
                 return true;
             }
             else if (args[1].equalsIgnoreCase("set") && args.length >= 4) {
-                int line = 0;
+                int line;
                 try {
                     line = Integer.parseInt(args[2]) - 1;
                 } catch (NumberFormatException e) {
