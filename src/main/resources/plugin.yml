@@ -1,0 +1,9 @@
+name: NBTEditor
+version: 1.0.0
+main: io.github.pyke.NBTEditor
+author:
+  - Pyke-Lee
+api-version: '1.21.4'
+commands:
+  nbtedit:
+    usage: /<command>
